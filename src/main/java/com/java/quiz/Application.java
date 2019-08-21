@@ -25,7 +25,7 @@ public class Application implements CommandLineRunner {
         repository.deleteAll();
 
         // save a couple of customers
-        repository.save(new Quiz("Laptop hardware", 1));
+        repository.save(new Quiz("Laptop hardware specs", 1));
         repository.save(new Quiz("Software engineering", 2));
 
         // fetch all customers
