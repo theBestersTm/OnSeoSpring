@@ -1,58 +1,30 @@
 package com.java.quiz;
 
-/**
- * Created by sgva1 on 8/21/2019.
- */
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import com.java.quiz.Model.Quiz;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
+import java.util.List;
 
-@Controller
-public class QuizController implements ServiceController {
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Map<String, Object> model) {
-        model.put("name", name);
-        return "greeting";
+@RestController
+public class QuizController {
+    @Autowired
+    private Service service;
+
+    @GetMapping("/tests")
+    public List<Quiz> getTests(){
+        return service.getAllQuiz();
     }
 
-    @GetMapping
-    public String main(@RequestParam(name="name", required=false, defaultValue="World") String name, Map<String, Object> model) {
-        model.put("name", name);
-        return "main";
+    @PostMapping("/add")
+    public String add(@RequestBody Quiz quiz){
+        service.addQuiz(quiz);
+        return "Added Quiz with id: " + quiz.getId(3);
     }
-
-    @Override
-    public void GetAllQuiz() {
-
-    }
-
-    @Override
-    public void FindQuiz() {
-
-    }
-
-    @Override
-    public void DeleteQuiz() {
-
-    }
-
-    @Override
-    public void PassQuiz() {
-
-    }
-
-    @Override
-    public void EditQuiz() {
-
-    }
-
-
-
 }
 
 
