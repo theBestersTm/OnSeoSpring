@@ -34,7 +34,7 @@ public class QuizService implements Service{
         quiz.setId(id);
         quizRepository.save(quiz);
     }
-
+///
     @Override
     public void addQuiz(Quiz quiz) {
         quizRepository.save(quiz);
