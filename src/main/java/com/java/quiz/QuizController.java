@@ -18,7 +18,7 @@ public class QuizController {
     @GetMapping("/tests")
     public List<Quiz> getTests(){
         return service.getAllQuiz();
-    }
+    }//
 
     @PostMapping("/add")
     public String add(@RequestBody Quiz quiz){
