@@ -14,7 +14,7 @@ import java.util.List;
 public class QuizController {
     @Autowired
     private Service service;
-
+//
     @GetMapping("/tests")
     public List<Quiz> getTests(){
         return service.getAllQuiz();
