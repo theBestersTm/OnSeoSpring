@@ -14,10 +14,10 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "Test_name")
+
     private String testName;
 
-    @Column(name = "Question")
+
     private List<Question> questions;
 
     public void setId(int id) {
