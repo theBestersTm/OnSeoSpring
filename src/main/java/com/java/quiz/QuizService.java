@@ -32,6 +32,7 @@ public class QuizService implements Service{
     @Override
     public void editQuiz(int id, Quiz quiz) {
         quiz.setId(id);
+
         quizRepository.save(quiz);
     }
 ///

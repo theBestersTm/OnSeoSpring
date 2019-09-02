@@ -1,5 +1,6 @@
 package com.java.quiz;
 
+import com.java.quiz.Model.Question;
 import com.java.quiz.Model.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -22,8 +23,10 @@ public class QuizController {
 
     @PostMapping("/add")
     public String add(@RequestBody Quiz quiz){
-
+        quiz.setTestName("Laptop");
+        quiz.setQuestions("Which of interface you couldnt see in lastest laptop","SATA","PATA","M.2","TYPE-C",2);
         service.addQuiz(quiz);
+
         return "Added Quiz with id: " + quiz.getId();
     }
 }
