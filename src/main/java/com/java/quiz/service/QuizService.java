@@ -1,6 +1,8 @@
-package com.java.quiz;
+package com.java.quiz.service;
 
 import com.java.quiz.Model.Quiz;
+import com.java.quiz.Service;
+import com.java.quiz.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +11,7 @@ import java.util.Optional;
 
 
 @Component
-public class QuizService implements Service{
+public class QuizService implements Service {
     @Autowired
     QuizRepository quizRepository;
 
@@ -20,22 +22,20 @@ public class QuizService implements Service{
     }
 
     @Override
-    public Optional<Quiz> findQuiz(int id) {
+    public Optional<Quiz> findQuiz(String id) {
         return quizRepository.findById(id);
     }
 
     @Override
-    public void deleteQuiz(int id) {
+    public void deleteQuiz(String id) {
         quizRepository.deleteById(id);
     }
 
     @Override
-    public void editQuiz(int id, Quiz quiz) {
-        quiz.setId(id);
-
+    public void editQuiz(String id, Quiz quiz) {
         quizRepository.save(quiz);
     }
-///
+
     @Override
     public void addQuiz(Quiz quiz) {
         quizRepository.save(quiz);
